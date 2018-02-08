@@ -15,19 +15,21 @@ function alphabetize(input) {
 }
 
 document.getElementById("findButton").onclick = function () {
-   
+    
     // clears any previous output every time the button is clicked
     document.getElementById("output").innerHTML = "";
     
     // this code returns the value of the element with Id="input" and stores it in variable typedText
     let typedText = document.getElementById("input").value;
+
+    let lowerTypedText = typedText.toLowerCase();
     
     //this for loop will iterate from 0 to array words.length
     for (i = 0; i < words.length; i++) {
 
 
         //this function alphabetizes the "typedText" input from the user and stores the new string in var alphInput
-        let alphInput = alphabetize(typedText);
+        let alphInput = alphabetize(lowerTypedText);
 
         // alphabetizes the current word from words.js and stores the new string in var alphWord
         let alphCurrentWord = alphabetize(words[i]);
@@ -43,7 +45,7 @@ document.getElementById("findButton").onclick = function () {
         // nested 'if statements' that set the conditions under which the text node will be appended to the destination.
         if (alphInput === alphCurrentWord) {
 
-            if (typedText !== words[i]) {
+            if (lowerTypedText !== words[i]) {
 
                 destination.appendChild(text);
             }
